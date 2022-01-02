@@ -1,0 +1,7 @@
+.import
+_dlls
+logs
+src/godotapi
+.nimcache
+src/.nimcache
+nakefile

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://image/chick_24x24.png" type="Texture" id=2]
+[ext_resource path="res://Player.gdns" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 120, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 14, 12.5 )
+
+[node name="PlayerNode" type="Node2D"]
+position = Vector2( 31, 516 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="PlayerSprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 16.0626, 14.0312 )
+scale = Vector2( 1.42188, 1.2526 )
+frames = SubResource( 9 )
+animation = "left"
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player"]
+position = Vector2( 16.0626, 16.5312 )
+shape = SubResource( 14 )
+
+[node name="Node2D" type="Node2D" parent="Player"]
